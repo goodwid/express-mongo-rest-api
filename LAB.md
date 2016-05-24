@@ -10,8 +10,8 @@ Highly suggested to **pair up** on this assignment.
 
 Be sure to implement full REST operations for each resource (`GET`/`POST`/`PUT`/`DELETE`)
 
-Logically required fields should be enforced for your resources and correct errors returned 
-if data no supplied.
+Enforce required fields and validation (e.g. a users age should not negative), 
+return meaningful errors.
 
 This is pretty open to interpretation. Write this from scratch, don't just copy and paste code 
 from class or previous projects.
@@ -36,10 +36,12 @@ eg `/birds&flightless=true` **2pts**
 
 * Implement `PATCH` for one of your resources **2pts**
 
+* Make your entities related and store identities of one in the other (e.g. user has birds) **2pts**
+
 * Use Mongoose Promise API **1pt**
 
 ##Rubric
-* Use of Express: **3pts**
-* Use of Mongo: **3pts**
-* Tests: **2pts**
-* Project Organization: **2pts**
+* Use of Express: **5pts**
+* Use of Mongo: **8pts**
+* Tests: **3pts**
+* Project Organization: **4pts**
