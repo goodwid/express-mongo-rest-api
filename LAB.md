@@ -10,6 +10,9 @@ Highly suggested to **pair up** on this assignment.
 
 Be sure to implement full REST operations for each resource (`GET`/`POST`/`PUT`/`DELETE`)
 
+Logically required fields should be enforced for your resources and correct errors returned 
+if data no supplied.
+
 This is pretty open to interpretation. Write this from scratch, don't just copy and paste code 
 from class or previous projects.
 
@@ -23,6 +26,8 @@ be something that happens in JavaScript, or using advanced features of Mongoose.
 
 In your assignment submission add a comment that includes how long it 
 took to complete and a reflection on the process.
+
+REST API testing required, you may not have any logically unit testable code.
 
 ## Bonus
 
