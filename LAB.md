@@ -1,13 +1,14 @@
 ![cf](http://i.imgur.com/7v5ASc8.png) express-mongo-rest-api
 ====
 
-Create a rest API with Express that's backed by Mongo with two resources (for example, /users and /birds).
+Create a rest API with Express that's backed by Mongo with two resources
+ (for example, `/users` and `/birds`).
 
 Highly suggested to **pair up** on this assignment.
 
 ##Description
 
-Be sure to implement full REST operations for each resource (GET/POST/PUT/DELETE)
+Be sure to implement full REST operations for each resource (`GET`/`POST`/`PUT`/`DELETE`)
 
 This is pretty open to interpretation. Write this from scratch, don't just copy and paste code 
 from class or previous projects.
@@ -24,8 +25,13 @@ In your assignment submission add a comment that includes how long it
 took to complete and a reflection on the process.
 
 ## Bonus
-Make at least one of your resources queryable on a list `GET`,
+
+* Make at least one of your resources queryable on a list `GET`,
 eg `/birds&flightless=true` **2pts**
+
+* Implement `PATCH` for one of your resources **2pts**
+
+* Use Mongoose Promise API **1pt**
 
 ##Rubric
 * Use of Express: **3pts**
