@@ -3,6 +3,8 @@
 
 Create a rest API with Express that's backed by Mongo with two resources (for example, /users and /birds).
 
+Highly suggested to **pair up** on this assignment.
+
 ##Description
 
 Be sure to implement full REST operations for each resource (GET/POST/PUT/DELETE)
