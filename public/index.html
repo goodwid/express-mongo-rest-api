@@ -6,26 +6,27 @@
   </head>
   <body>
     <h1> People of Westeros</h1>
-    <form method="POST" id="peopleForm">
+    <form id="peopleForm">
       Name:<br>
       <input type="text" name="name" value="eg. Ned Stark"></input>
       <br>
       Family:<br>
-      <input type="text" name="name" value="eg. Stark"></input>
+      <input type="text" name="family" value="eg. Stark"></input>
       <br>
       Status:<br>
-      <input type="text" name="name" value="alive or dead"></input>
+      <input type="text" name="status" value="alive or dead"></input>
       <br>
       Killed By:<br>
-      <input type="text" name="name" value="if dead enter name of killer"></input>
+      <input type="text" name="killed_by" value="if dead enter name of killer"></input>
       <br>
       Home:<br>
-      <input type="text" name="name" value="eg. Winterfell"></input>
+      <input type="text" name="home" value="eg. Winterfell"></input>
       <br>
     </form>
     <br>
     <button type="submit" value="Submit" id="peopleButton">Submit</button>
     <br>
+    <textarea id="peopleResults"></textarea>
     <br>
     <h1>Locations of Westeros</h1>
     <form method="POST" id="locationsForm">
@@ -41,5 +42,10 @@
     </form>
     <br>
     <button type="submit" value="Submit" id="locationsButton">Submit</button>
+
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/superagent/1.2.0/superagent.min.js"></script>
+    <script src="js/formhandler.js"></script>
+
   </body>
 </html>

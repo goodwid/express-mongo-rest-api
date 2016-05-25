@@ -22,5 +22,6 @@ module.exports = mongoose.model('People', new Schema( {
     required: true
   }
 },{
-  timestamps: true 
+  timestamps: true
+
 }));
