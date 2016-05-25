@@ -15,10 +15,11 @@ module.exports = mongoose.model('People', new Schema( {
     required: true
   },
   killed_by: {
-    type: Schema.Types.ObjectId
+    type: String
   },
   home: {
-    type: Schema.Types.ObjectId,
+    type: Schema.Types.ObjectId
+    ref: 'Locations'
     required: true
   }
 },{
