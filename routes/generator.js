@@ -1,10 +1,10 @@
-const router = require('express').Router();
-const bodyParser = require('body-parser').json();
 
 function generateRoute(model) {
 
+  const router = require('express').Router();
+  const bodyParser = require('body-parser').json();
   const Item = require(model);
-
+  
   var byId = (req) => ({_id: req.params.id});
 
   return router
@@ -16,7 +16,7 @@ function generateRoute(model) {
       .then( results => res.json(results));
    })
    .get('/:id', (req, res) => {
-     Item. findOne(byId(req))
+     Item.findOne(byId(req))
       .then(results => res.json(results));
    })
    .post('/', bodyParser, (req, res) => {
