@@ -13,6 +13,9 @@
     "url": "git+https://github.com/goodwid/express-mongo-rest-api.git"
   },
   "author": "David Goodwin <goodwid@gmail.com>",
+  "collaborators": [{
+     "name": "Yvonne Hayes"
+   }],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/goodwid/express-mongo-rest-api/issues"
