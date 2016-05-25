@@ -5,7 +5,8 @@
     <title>GOT | Entry</title>
   </head>
   <body>
-    <form action="http://localhost:9000/people" method="POST">
+    <h1> People of Westeros</h1>
+    <form method="POST" id="peopleForm">
       Name:<br>
       <input type="text" name="name" value="eg. Ned Stark"></input>
       <br>
@@ -23,6 +24,22 @@
       <br>
     </form>
     <br>
-    <button type="submit" value="Submit">Submit</button>
+    <button type="submit" value="Submit" id="peopleButton">Submit</button>
+    <br>
+    <br>
+    <h1>Locations of Westeros</h1>
+    <form method="POST" id="locationsForm">
+      Name:<br>
+      <input type="text" name="name" value="eg. Winterfell"></input>
+      <br>
+      Controlled by which family?:<br>
+      <input type="text" name="name" value="eg. Stark"></input>
+      <br>
+      Region:<br>
+      <input type="text" name="name" value="eg. North"></input>
+      <br>
+    </form>
+    <br>
+    <button type="submit" value="Submit" id="locationsButton">Submit</button>
   </body>
 </html>
