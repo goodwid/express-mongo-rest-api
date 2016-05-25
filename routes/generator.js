@@ -1,10 +1,9 @@
-
 function generateRoute(model) {
 
   const router = require('express').Router();
   const bodyParser = require('body-parser').json();
   const Item = require(model);
-  
+
   var byId = (req) => ({_id: req.params.id});
 
   return router
