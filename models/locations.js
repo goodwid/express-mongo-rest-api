@@ -14,4 +14,6 @@ module.exports = mongoose.model('Locations', new Schema( {
     type: String,
     required: true
   }
+},{
+  timestamps: true
 }));
