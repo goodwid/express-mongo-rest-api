@@ -2,7 +2,7 @@
   "name": "express-mongo-rest-api",
   "version": "1.0.0",
   "description": "![cf](http://i.imgur.com/7v5ASc8.png) Code Fellows PDX 401 Fullstack Javscript ====",
-  "main": "gulpfile.js",
+  "main": "index.js",
   "scripts": {
     "test": "gulp test",
     "dev": "gulp",
@@ -31,10 +31,13 @@
   },
   "devDependencies": {
     "chai": "^3.5.0",
+    "chai-http": "^2.0.1",
     "eslint": "^2.10.2",
     "gulp": "^3.9.1",
     "gulp-eslint": "^2.0.0",
     "gulp-mocha": "^2.2.0",
-    "mocha": "^2.4.5"
+    "gulp-spawn-mocha": "^2.2.2",
+    "mocha": "^2.4.5",
+    "superagent": "^2.0.0-alpha.3"
   }
 }

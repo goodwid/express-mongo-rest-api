@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const Person = mongoose.model('People', new Schema( {
+module.exports = mongoose.model('People', new Schema( {
   name: {
     type: String,
     required: true
@@ -27,9 +27,3 @@ const Person = mongoose.model('People', new Schema( {
   timestamps: true
 
 }));
-
-
- var opts = { runValidators: true };
-
-
-module.exports = Person;
