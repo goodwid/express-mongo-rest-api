@@ -14,7 +14,13 @@ router
  })
  .get('/:id', (req, res) => {
    People.findById(req.params.id)
-    .then(result => res.json(result));
+    .then(result => {
+      if (result) {
+        res.json(result);
+      } else {
+        res.json({error: { message: 'Entry not found'}});
+      }
+    });
  })
  .post('/', bodyParser, (req, res) => {
    new People(req.body).save()
