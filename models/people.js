@@ -18,8 +18,8 @@ module.exports = mongoose.model('People', new Schema( {
     type: String
   },
   home: {
-    type: Schema.Types.ObjectId
-    ref: 'Locations'
+    type: Schema.Types.ObjectId,
+    ref: 'Locations',
     required: true
   }
 },{

@@ -13,9 +13,11 @@
     "url": "git+https://github.com/goodwid/express-mongo-rest-api.git"
   },
   "author": "David Goodwin <goodwid@gmail.com>",
-  "collaborators": [{
-     "name": "Yvonne Hayes"
-   }],
+  "collaborators": [
+    {
+      "name": "Yvonne Hayes"
+    }
+  ],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/goodwid/express-mongo-rest-api/issues"
@@ -24,7 +26,8 @@
   "dependencies": {
     "body-parser": "^1.15.1",
     "express": "^4.13.4",
-    "mongoose": "^4.4.19"
+    "mongoose": "^4.4.19",
+    "morgan": "^1.7.0"
   },
   "devDependencies": {
     "chai": "^3.5.0",
