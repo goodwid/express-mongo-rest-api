@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-const mongoose = require ('./lib/setup-mongoose');
+require ('./lib/setup-mongoose');
 const app = require('./lib/app');
 const port = process.env.PORT || process.argv[2] || 9000;
 

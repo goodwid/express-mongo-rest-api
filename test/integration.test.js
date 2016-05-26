@@ -1,7 +1,8 @@
 const app = require('../lib/app');
 const chai = require('chai');
 const chaiHttp = require('chai-http');
-const mongoose = require ('../lib/setup-mongoose');
+require ('../lib/setup-mongoose');
+
 const assert = chai.assert;
 chai.use(chaiHttp);
 
@@ -13,7 +14,6 @@ const testData = {
   killed_by: 'Joffrey Baratheon'
 };
 
-var id;
 
 describe('integration', () => {
   const request = chai.request(app);
