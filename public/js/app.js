@@ -61,11 +61,9 @@ people.getData = function() {
 };
 
 $pb.on('click', () => {
-  console.log('pb clicked');
-  const people = {};
   entryForm.pf = document.getElementById('peopleForm');
   people.name = entryForm.pf.elements.name.value;
-  people.family = entryForm.pf.elements.family.value;
+  people.allegiance = entryForm.pf.elements.allegiance.value;
   people.alive = entryForm.pf.elements.alive.value;
   people.killed_by = entryForm.pf.elements.killed_by.value;
   people.home = entryForm.pf.elements.home.value;
@@ -80,8 +78,6 @@ $pb.on('click', () => {
 });
 
 $lb.on('click', () => {
-  console.log('lb clicked');
-  const location = {};
   entryForm.lf = document.getElementById('locationsForm');
   location.name = entryForm.lf.elements.name.value;
   location.family = entryForm.lf.elements.family.value;

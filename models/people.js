@@ -1,19 +1,16 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-module.exports = mongoose.model('People', new Schema( {
+const Person = mongoose.model('People', new Schema( {
   name: {
     type: String,
     required: true
   },
-  family: {
+  allegiance: {
     type: String,
-    required: true
+    required: true,
+    enum: ['Stark', 'Lannister', 'Targaryen', 'Bolton', 'Night\'s Watch', 'Tyrell', 'Greyjoy', 'Baratheon', 'Tully', 'Martell', 'Arryn']
   },
-  // status: {
-  //   type: String,
-  //   required: true
-  // },
   alive: {
     type: Boolean,
     required: true
@@ -30,3 +27,9 @@ module.exports = mongoose.model('People', new Schema( {
   timestamps: true
 
 }));
+
+
+ var opts = { runValidators: true };
+
+
+module.exports = Person;
