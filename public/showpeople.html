@@ -3,12 +3,19 @@
   <head>
     <meta charset="utf-8">
     <title>Game of Thrones characters</title>
+    <script id="template">
+      <li><a href="/people/{{_id}}">{{name}}</a>, of house {{family}}</li>
+    </script>
   </head>
   <body>
-    <pre id="results"></pre>
+    <h2>People of Westeros</h2>
+    <ul>
+
+    </ul>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/superagent/1.2.0/superagent.min.js"></script>
     <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
 
     <script src="js/people.js"></script>
   </body>

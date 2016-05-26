@@ -1,9 +1,12 @@
-console.log('got here.');
+const template = $('#template').html();
+const compiler = Handlebars.compile(template);
+const ul = $('ul');
+
 superagent
   .get('http://localhost:9000/locations')
   .end((err, res) => {
-    console.log('got to .end.');
-    console.log(res);
+    res.body.forEach( item => {
+      ul.append (compiler(item));
+    });
 
-    $('#results').text(res.text);
   });
