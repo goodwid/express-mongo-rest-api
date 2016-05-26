@@ -66,7 +66,6 @@ describe('integration', () => {
   });
 
   describe('DELETE', () => {
-
     it('removes the record', done => {
       request.delete(`/people/${id}`).end((err, res) => {
         const result = JSON.parse(res.text);
@@ -86,6 +85,17 @@ describe('integration', () => {
     });
   });
 
-
+  describe('dead people', () => {
+    it('retrieves the ratio of people in the collection who are dead', done => {
+      request
+        .get(`/people/dead`)
+        .end((err, res) => {
+          const result = JSON.parse(res.text);
+          assert.isObject(result);
+          assert.propertyVal(result, 'explanation', 'The percentage of people who are dead.');
+          done();
+        });
+    });
+  });
 
 });

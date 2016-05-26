@@ -28,7 +28,7 @@ router
      message.total = results.length;
      message.alive = alive.length;
      message.dead = dead.length,
-     message.ratio = `${(message.dead / message.total) * 100}%`;
+     message.ratio = `${((message.dead / message.total) * 100).toFixed(2)}%`;
      message.explanation = 'The percentage of people who are dead.';
      res.json(message);
    });
