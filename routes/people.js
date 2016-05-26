@@ -1,15 +1,14 @@
 const router = module.exports = require('express').Router();
 const bodyParser = require('body-parser').json();
 const People = require('../models/people');
-const Location = require('../models/locations');
 
 router
  .get('/', (req, res) => {
    const query = req.query.type ? {type: req.query.type} : {};
    People.find(query)
     .select('name family home')
-    // .populate('home', 'location.name')
-    // .lean()
+    .populate('home', 'name')
+    .lean()
     .then( results => res.json(results));
  })
  .get('/:id', (req, res) => {

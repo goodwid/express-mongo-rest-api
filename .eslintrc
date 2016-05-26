@@ -19,7 +19,8 @@
     "before": false,
     "after": false,
     "$": false,
-    "superagent": false
+    "superagent": false,
+    "Handlebars": false
   },
   "ecmaFeatures": {
     "modules": true,
