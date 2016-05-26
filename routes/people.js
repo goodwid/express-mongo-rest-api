@@ -25,7 +25,6 @@ router
     });
  })
   .put('/:id', bodyParser, (req, res) => {
-
     People.findById(req.params.id)
       .then(result => {
         if (validHouses.indexOf(req.body.allegiance) === -1) {
@@ -39,8 +38,6 @@ router
             });
         }
       });
-    //  People.findByIdAndUpdate(req.params.id, req.body, {new:true})
-    //   .then(result => res.json(result));
   })
   .delete('/:id', (req, res) => {
     People.findByIdAndRemove(req.params.id)
