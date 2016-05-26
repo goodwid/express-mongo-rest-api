@@ -4,9 +4,22 @@ const ul = $('ul');
 
 
 superagent
-  .get('http://localhost:9000/people')
+  .get('/people')
   .end((err, res) => {
     res.body.forEach( item => {
+      console.log(item);
       ul.append (compiler(item));
+      $(`#${item._id}`).on('click', (e)=>{
+        deletePerson(e.target.id);
+      });
     });
   });
+
+  function deletePerson(id) {
+    superagent
+      .del(`/people/${id}`)
+      .end((err, res) => {
+        console.log(res.body);
+        // alert(res.body);
+      });
+  }

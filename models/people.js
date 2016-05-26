@@ -15,7 +15,7 @@ module.exports = mongoose.model('People', new Schema( {
     required: true
   },
   killed_by: {
-    type: String
+    type: Schema.Types.ObjectId
   },
   home: {
     type: Schema.Types.ObjectId,
