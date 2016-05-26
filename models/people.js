@@ -10,10 +10,10 @@ module.exports = mongoose.model('People', new Schema( {
     type: String,
     required: true
   },
-  status: {
-    type: String,
-    required: true
-  },
+  // status: {
+  //   type: String,
+  //   required: true
+  // },
   alive: {
     type: Boolean,
     required: true

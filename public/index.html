@@ -6,13 +6,13 @@
     <link rel="stylesheet" href="css/style.css" type="text/css">
 
     <script id="peopletemplate">
-      <li >name: {{name}}, allegiance: {{family}}, home: {{home.name}} &nbsp;
-      <input id="{{_id}}" type="submit" value="delete"></form>
+      <li>name: {{name}}, allegiance: {{family}}, home: {{home.name}} &nbsp;
+      <input id="{{_id}}" type="submit" value="delete">
       </li>
     </script>
     <script id="locationtemplate">
       <li>{{name}}, {{family}} &nbsp;
-      <input id="{{_id}}" type="submit" value="delete"></form>
+      <input id="{{_id}}" type="submit" value="delete">
       </li>
     </script>
 
@@ -43,7 +43,7 @@
       <br>
       <button type="submit" value="Submit" id="peopleButton">Submit</button>
       <br>
-      <pre id="peopleResults"></pre>
+      <pre id="peopleResults" width="30"></pre>
       <br>
     </section>
     <section id="locationEntry">
@@ -61,7 +61,7 @@
       </form>
       <br>
       <button type="submit" value="Submit" id="locationsButton">Submit</button>
-      <pre id="locationResults"></pre>
+      <pre id="locationResults" width="30"></pre>
     </section>
     <section id="lists">
       <h2>People of Westeros</h2>
@@ -70,7 +70,7 @@
       </ul>
 
       <h2>Locations of Westeros</h2>
-      <ul  id="locations">
+      <ul id="locations">
 
       </ul>
     </section>
