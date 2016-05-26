@@ -12,6 +12,28 @@ router
     .lean()
     .then( results => res.json(results));
  })
+ .get('/dead', (req, res) => {
+   People.find({})
+   .select('alive')
+   .then(results => {
+     const alive = results.filter(item => {
+       return item.alive === true;
+     });
+     const dead = results.filter(item => {
+       return item.alive === false;
+     });
+     console.log('alive', alive.length);
+     console.log('dead', dead.length);
+     const message = {};
+     message.total = results.length;
+     message.alive = alive.length;
+     message.dead = dead.length,
+     message.ratio = `${(message.dead / message.total) * 100}%`;
+     message.explanation = 'The percentage of people who are dead.';
+     res.json(message);
+   });
+ })
+
  .get('/:id', (req, res) => {
    People.findById(req.params.id)
     .then(result => {
