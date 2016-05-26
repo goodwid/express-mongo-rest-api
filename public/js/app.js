@@ -3,7 +3,7 @@ locations.template = $('#locationtemplate').html();
 locations.compiler = Handlebars.compile(locations.template);
 locations.ul = $('#locations');
 
-const people = {}
+const people = {};
 people.template = $('#peopletemplate').html();
 people.compiler = Handlebars.compile(people.template);
 people.ul = $('#people');
@@ -14,7 +14,6 @@ locations.deleteRecord = function(id) {
   .del(`/locations/${id}`)
   .end((err, res) => {
     console.log(res.body);
-
   });
 };
 
