@@ -1,12 +1,13 @@
 
-var form = {};
-var people = {};
-var location = {};
+const form = {};
+const people = {};
+const location = {};
 
 form.pf = document.getElementById('peopleForm');
 form.lf = document.getElementById('locationsForm');
 
 const $lb = $('#peopleButton');
+
 $lb.on('click', () => {
   location.name = form.pf.elements.name.value;
   location.family = form.pf.elements.family.value;
@@ -20,7 +21,8 @@ $lb.on('click', () => {
     });
 });
 
-const $pb = $('#peopleButton');
+const $pb = $('#locationsButton');
+
 $pb.on('click', () => {
   people.name = form.pf.elements.name.value;
   people.family = form.pf.elements.family.value;
