@@ -88,7 +88,7 @@ describe('integration', () => {
   describe('dead people', () => {
     it('retrieves the ratio of people in the collection who are dead', done => {
       request
-        .get(`/people/dead`)
+        .get('/people/dead')
         .end((err, res) => {
           const result = JSON.parse(res.text);
           assert.isObject(result);
