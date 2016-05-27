@@ -58,7 +58,9 @@ router
         if (validHouses.indexOf(req.body.allegiance) === -1) {
           res.json({error:{ message: 'Sorry, that is not a valid Great House.'}});
         } else {
-          new People(Object.assign(result, req.body)).save()
+          let temp = Object.assign(result, req.body);
+          delete temp._id;
+          new People(temp).save()
             .then(result => res.send(result))
             .catch(error => {
               console.log(error);
