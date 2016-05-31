@@ -1,5 +1,4 @@
-const router = require('exress').Router();
-const bodyParser = require('body-parser').json();
+const router = require('express').Router();
 const User = require('../models/user');
 
 router

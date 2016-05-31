@@ -1,7 +1,8 @@
 const router = module.exports = require('express').Router();
 const bodyParser = require('body-parser').json();
 const People = require('../models/people');
-const validHouses = ['Stark', 'Lannister', 'Targaryen', 'Bolton', 'Night\'s Watch', 'Tyrell', 'Greyjoy', 'Baratheon', 'Tully', 'Martell', 'Arryn'];
+const ensureRole = require('../lib/ensureRole');
+const validHouses = People.schema.tree['allegiance'].enum;
 
 router
  .get('/', (req, res) => {
@@ -50,7 +51,7 @@ router
       res.json({error});
     });
  })
-  .put('/:id', bodyParser, (req, res) => {
+  .put('/:id', bodyParser, ensureRole('admin'), (req, res) => {
     People.findById(req.params.id)
       .then(result => {
         if (validHouses.indexOf(req.body.allegiance) === -1) {
@@ -65,7 +66,7 @@ router
         }
       });
   })
-  .delete('/:id', (req, res) => {
+  .delete('/:id', ensureRole('admin'), (req, res) => {
     People.findByIdAndRemove(req.params.id)
     .then(result => res.json(result));
   });

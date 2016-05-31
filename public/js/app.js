@@ -25,6 +25,7 @@ locations.getData = function() {
   locations.ul.empty();
   superagent
     .get('/locations')
+    .set('token','eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU3NGUwMDRiMTAxMjg2NDg0MDZkYWUzMSIsInJvbGVzIjpbXSwiaWF0IjoxNDY0NzI5NzUxfQ.1bgc_DAAdTHPmyUw7CU90boxQpu5JjmW-bUaYXABfTw')
     .end((err, res) => {
       res.body.forEach( item => {
         locations.ul.append (locations.compiler(item));

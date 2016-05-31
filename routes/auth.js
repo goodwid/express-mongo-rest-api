@@ -1,11 +1,11 @@
 const router = require('express').Router();
 const bodyParser = require('body-parser').json();
-const User = require('..models/user');
+const User = require('../models/user');
 const token = require('../lib/token');
 
 router
   .post('/signup', bodyParser, (req, res) => {
-    const.username = req.body.username;
+    const username = req.body.username;
     const password = req.body.password;
     delete req.body.password;
 
@@ -28,7 +28,7 @@ router
         user.generateHash(password);
         return user.save()
           .then(user => token.sign(user))
-          .then(token => res.json({token});
+          .then(token => res.json({token}));
       })
       .catch(err => {
         res.status(500).json({
@@ -39,17 +39,17 @@ router
   })
 
   .post('/signin', bodyParser, (req, res) => {
-    const.username = req.body.username;
+    const username = req.body.username;
     const password = req.body.password;
     delete req.body;
 
-    user.findOne({username})
+    User.findOne({username})
       .then(user => {
         if (!user || !user.compareHash(password)) {
           return res.status(400).json({
             msg: 'Authentication failed.'
           });
-        });
+        }
         token.sign(user)
           .then(token => res.json({token}));
       })

@@ -18,7 +18,7 @@ userSchema.methods.generateHash = function(password) {
   return this.password = bcrypt.hashSync(password, 8);
 };
 
-userSchema.methods.compHash = function(password) {
+userSchema.methods.compareHash = function(password) {
   return bcrypt.compareSync(password, this.password);
 };
 
