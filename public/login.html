@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Login</title>
+  </head>
+  <body>
+    <h2>Sign in to Westeros</h2>
+    <form id="credentials" onsubmit="return false;">
+      <div>username: <input name="username"></div>
+      <div>password: <input name="password"></div>
+      <div>
+        <button onclick="login('signup');">Sign Up</button>
+        <button onclick="login('signin');">Sign In</button>
+      </div>
+      <div id="error"></div>
+    </form>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/superagent/1.2.0/superagent.min.js"></script>
+    <script src="js/login.js"></script>
+
+
+
+  </body>
+</html>

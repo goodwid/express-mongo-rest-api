@@ -1,3 +1,8 @@
+var token = localStorage.token;
+if (!token) {
+  window.location = 'login.html';
+}
+
 const locations = {};
 const people = {};
 const entryForm = {};
@@ -9,12 +14,14 @@ people.template = $('#peopletemplate').html();
 people.compiler = Handlebars.compile(people.template);
 people.ul = $('#people');
 
+
 const $lb = $('#locationsButton');
 const $pb = $('#peopleButton');
 
 locations.deleteRecord = function(id) {
   superagent
   .del(`/locations/${id}`)
+  .set('token',token)
   .end((err, res) => {
     console.log(res.body);
   });
@@ -25,7 +32,7 @@ locations.getData = function() {
   locations.ul.empty();
   superagent
     .get('/locations')
-    .set('token','eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU3NGUwMDRiMTAxMjg2NDg0MDZkYWUzMSIsInJvbGVzIjpbXSwiaWF0IjoxNDY0NzI5NzUxfQ.1bgc_DAAdTHPmyUw7CU90boxQpu5JjmW-bUaYXABfTw')
+    .set('token',token)
     .end((err, res) => {
       res.body.forEach( item => {
         locations.ul.append (locations.compiler(item));
@@ -40,6 +47,7 @@ locations.getData = function() {
 people.deleteRecord = function(id) {
   superagent
   .del(`/people/${id}`)
+  .set('token',token)
   .end((err, res) => {
     console.log(res.body);
   });
@@ -50,6 +58,7 @@ people.getData = function() {
   people.ul.empty();
   superagent
     .get('/people')
+    .set('token',token)
     .end((err, res) => {
       res.body.forEach( item => {
         people.ul.append (people.compiler(item));
@@ -70,7 +79,7 @@ $pb.on('click', () => {
   people.home = entryForm.pf.elements.home.value;
   superagent
     .post('/people')
-    .set('Accept', 'application/json')
+    .set('token',token)
     .send(people)
     .end((err, res) => {
       $('#peopleResults').text(res.text);
@@ -85,7 +94,7 @@ $lb.on('click', () => {
   location.region = entryForm.lf.elements.region.value;
   superagent
   .post('/locations')
-  .set('Accept', 'application/json')
+  .set('token',token)
   .send(location)
   .end((err, res) => {
     $('#locationResults').text(res.text);
