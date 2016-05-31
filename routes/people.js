@@ -22,8 +22,6 @@ router
      const dead = results.filter(item => {
        return item.alive === false;
      });
-     console.log('alive', alive.length);
-     console.log('dead', dead.length);
      const message = {};
      message.total = results.length;
      message.alive = alive.length;

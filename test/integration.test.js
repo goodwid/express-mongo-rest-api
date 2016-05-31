@@ -7,11 +7,9 @@ const assert = chai.assert;
 chai.use(chaiHttp);
 
 const testData = {
-  name: 'Eddard Stark',
-  allegiance: 'Stark',
-  alive: false,
-  home: '57461ec3ec025fa01f91c0ed',
-  killed_by: 'Joffrey Baratheon'
+  name: 'Humboldt Fog',
+  milk: 'goat',
+  region: 'California'
 };
 
 
