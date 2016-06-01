@@ -1,4 +1,4 @@
-const Location = require('../models/locations.js');
+const Location = require('../models/locations');
 
 describe('Location model', () => {
   it('requires name', done => {

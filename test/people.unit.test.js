@@ -1,4 +1,4 @@
-const People = require('../models/people.js');
+const People = require('../models/people');
 
 describe('People model', () => {
   it('requires name', done => {
