@@ -15,7 +15,6 @@ function login(type) {
   superagent.post(`/${type}`)
     .send(cred)
     .end((err, res) => {
-      console.log(res.body);
       if(!err && res.body && res.body.token) {
         localStorage.token = res.body.token;
         window.location = '/';

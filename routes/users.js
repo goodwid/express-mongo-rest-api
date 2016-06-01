@@ -29,6 +29,17 @@ router
           error: err
         });
       });
+  })
+  .delete('/:id', (req, res) => {
+    User.findByIdAndRemove(req.params.id)
+    .then(result => res.json(result))
+    .catch(err => {
+      res.status(500).json({
+        msg: 'unable to delete user',
+        error: err
+      });
+    });
+
   });
 
 module.exports = router;

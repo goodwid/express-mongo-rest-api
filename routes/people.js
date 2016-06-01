@@ -51,7 +51,7 @@ router
       res.json({error});
     });
  })
-  .put('/:id', bodyParser, ensureRole('admin'), (req, res) => {
+  .put('/:id', bodyParser,  ensureRole('admin'), (req, res) => {
     People.findById(req.params.id)
       .then(result => {
         if (validHouses.indexOf(req.body.allegiance) === -1) {

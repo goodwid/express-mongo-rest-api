@@ -28,7 +28,7 @@ router
         user.generateHash(password);
         return user.save()
           .then(user => token.sign(user))
-          .then(token => res.json({token}));
+          .then(token => res.json({token, id: user._id}));
       })
       .catch(err => {
         res.status(500).json({
@@ -50,8 +50,9 @@ router
             msg: 'Authentication failed.'
           });
         }
+
         token.sign(user)
-          .then(token => res.json({token}));
+          .then(token => res.json({token, id: user._id}));
       })
       .catch(err => {
         res.status(500).json({
@@ -61,4 +62,4 @@ router
       });
   });
 
-  module.exports = router;
+module.exports = router;
