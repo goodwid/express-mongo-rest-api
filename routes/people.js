@@ -11,7 +11,13 @@ router
     .select('name allegiance home')
     .populate('home', 'name')
     .lean()
-    .then( results => res.json(results));
+    .then( results => res.json(results))
+    .catch(err => {
+      res.status(500).json({
+        msg: 'Unable to find people',
+        reason: err
+      });
+    });
  })
  .get('/dead', (req, res) => {
    People.find({})
@@ -30,6 +36,12 @@ router
      message.ratio = `${((message.dead / message.total) * 100).toFixed(2)}%`;
      message.explanation = 'The percentage of people who are dead.';
      res.json(message);
+   })
+   .catch(err => {
+     res.status(500).json({
+       msg: 'Unable to locate data',
+       reason: err
+     });
    });
  })
 
@@ -41,6 +53,12 @@ router
       } else {
         res.json({error: { message: 'Entry not found'}});
       }
+    })
+    .catch(err => {
+      res.status(500).json({
+        msg: 'Unable to locate record',
+        reason: err
+      });
     });
  })
  .post('/', bodyParser, (req, res) => {
@@ -54,19 +72,31 @@ router
   .put('/:id', bodyParser,  ensureRole('admin'), (req, res) => {
     People.findById(req.params.id)
       .then(result => {
-        if (validHouses.indexOf(req.body.allegiance) === -1) {
-          res.json({error:{ message: 'Sorry, that is not a valid Great House.'}});
-        } else {
-          new People(Object.assign(result, req.body)).save()
-            .then(result => res.send(result))
-            .catch(error => {
-              console.log(error);
-              res.json({error});
-            });
+        if (result) {
+          if (validHouses.indexOf(req.body.allegiance) === -1) {
+            res.json({error:{ message: 'Sorry, that is not a valid Great House.'}});
+          } else {
+            new People(Object.assign(result, req.body)).save()
+              .then(result => res.send(result))
+              .catch(error => {
+                console.log(error);
+                res.json({error});
+              });
+          }
         }
+      })
+      .catch(error => {
+        console.log(error);
+        res.json({error});
       });
   })
   .delete('/:id', ensureRole('admin'), (req, res) => {
     People.findByIdAndRemove(req.params.id)
-    .then(result => res.json(result));
+    .then(result => res.json(result))
+    .catch(err => {
+      res.status(500).json({
+        msg: 'Unable to delete record',
+        reason: err
+      });
+    });
   });

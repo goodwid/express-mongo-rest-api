@@ -13,10 +13,10 @@ const testData = {
   allegiance: 'Stark',
   alive: false,
   home: '57461ec3ec025fa01f91c0ed',
-  killed_by: 'Joffrey Baratheon'
+  killed_by: 'Ser Ilyn Paine, The King\'s Justice',
+  pedantic_instructor: true
 };
 
-// pre-existing Admin account
 const testAdmin = {
   username: 'testAdmin',
   password: 'chai'
@@ -38,7 +38,7 @@ describe('integration', () => {
   let id;
   describe('User creation', () => {
 
-    before('get token for testAdmin', function (done) {
+    before('create testAdmin user', function (done) {
       const user = new User(testAdmin);
       user.generateHash('chai');
       user.roles.push('admin');
@@ -90,6 +90,7 @@ describe('integration', () => {
           done();
         });
     });
+
     it('set testUser1 as admin', function (done) {
       this.timeout(10000);
       request
@@ -124,9 +125,8 @@ describe('integration', () => {
           done();
         });
     });
-
-
   });
+
   describe('GET', () => {
     it('retrieves the record', function (done) {
       this.timeout(10000);
@@ -141,8 +141,8 @@ describe('integration', () => {
         });
     });
   });
-  describe('PUT', () => {
 
+  describe('PUT', () => {
     it('modifies the record', function (done) {
       this.timeout(10000);
       request
@@ -181,7 +181,6 @@ describe('integration', () => {
             .end((err, res) => {
               const getResult = JSON.parse(res.text);
               assert.isObject(result);
-
               done();
             });
         });
@@ -205,7 +204,6 @@ describe('integration', () => {
               assert.isObject(getResult);
               const expectedMessage = {error: { message: 'Entry not found'}};
               assert.deepEqual(getResult, expectedMessage);
-
               done();
             });
         });
