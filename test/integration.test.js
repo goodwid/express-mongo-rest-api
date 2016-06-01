@@ -3,6 +3,7 @@ const chai = require('chai');
 const chaiHttp = require('chai-http');
 require ('../lib/setup-mongoose');
 const User = require('../models/user');
+const token = require('../lib/token');
 
 const assert = chai.assert;
 chai.use(chaiHttp);
@@ -37,6 +38,17 @@ describe('integration', () => {
   let id;
   describe('User creation', () => {
 
+    before('get token for testAdmin', function (done) {
+      const user = new User(testAdmin);
+      user.generateHash('chai');
+      user.roles.push('admin');
+      return user.save()
+        .then(user => {
+          token.sign(user);
+          testAdmin.id = user._id;
+          done();
+        });
+    });
 
     before('get token for testAdmin', function (done) {
       this.timeout(10000);
@@ -230,6 +242,16 @@ describe('integration', () => {
     this.timeout(10000);
     request
     .delete(`/users/${testUser2.id}`)
+    .set('token', testAdmin.token)
+    .end((err, res) => {
+      done();
+    });
+  });
+
+  after('delete testAdmin', function (done) {
+    this.timeout(10000);
+    request
+    .delete(`/users/${testAdmin.id}`)
     .set('token', testAdmin.token)
     .end((err, res) => {
       done();
