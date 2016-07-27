@@ -27,6 +27,8 @@
   "dependencies": {
     "bcrypt": "^0.8.6",
     "body-parser": "^1.15.1",
+    "compression": "^1.6.2",
+    "cors": "^2.7.1",
     "express": "^4.13.4",
     "jsonwebtoken": "^7.0.0",
     "mongoose": "^4.4.19",
@@ -39,7 +41,6 @@
     "eslint": "^2.10.2",
     "gulp": "^3.9.1",
     "gulp-eslint": "^2.0.0",
-    "gulp-mocha": "^2.2.0",
     "gulp-spawn-mocha": "^2.2.2",
     "mocha": "^2.4.5"
   }
