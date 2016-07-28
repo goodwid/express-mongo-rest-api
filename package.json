@@ -5,9 +5,15 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "test": "gulp test",
-    "dev": "gulp",
-    "lint": "gulp lint"
+    "start:watch": "nodemon index.js",
+    "test": "mocha --recursive",
+    "test:watch": "mocha --recursive -w",
+    "test:int": "mocha test/integration",
+    "test:int:watch": "mocha -w test/integration",
+    "test:unit": "mocha test/unit",
+    "test:unit:watch": "mocha -w test/unit",
+    "pretest": "npm run lint",
+    "lint": "eslint **/*.js"
   },
   "repository": {
     "type": "git",
@@ -39,9 +45,7 @@
     "chai": "^3.5.0",
     "chai-http": "^2.0.1",
     "eslint": "^2.10.2",
-    "gulp": "^3.9.1",
-    "gulp-eslint": "^2.0.0",
-    "gulp-spawn-mocha": "^2.2.2",
-    "mocha": "^2.4.5"
+    "mocha": "^2.4.5",
+    "nodemon": "^1.10.0"
   }
 }

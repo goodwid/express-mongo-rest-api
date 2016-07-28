@@ -1,4 +1,5 @@
-const User = require('../models/user');
+const User = require('../../models/user');
+const mongoose = require('mongoose');
 
 describe('User model', () => {
   it('requires name', done => {
@@ -13,6 +14,10 @@ describe('User model', () => {
     user.validate()
     .then(done)
     .catch(done);
+  });
+
+  after('remove mongoose model', () => {
+    delete mongoose.connection.models['User'];
   });
 
 });

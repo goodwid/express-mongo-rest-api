@@ -1,4 +1,5 @@
-const Location = require('../models/locations');
+const Location = require('../../models/locations');
+const mongoose = require('mongoose');
 
 describe('Location model', () => {
   it('requires name', done => {
@@ -13,6 +14,10 @@ describe('Location model', () => {
     place.validate()
     .then(done)
     .catch(done);
+  });
+
+  after('remove mongoose model', () => {
+    delete mongoose.connection.models['Locations'];
   });
 
 });
