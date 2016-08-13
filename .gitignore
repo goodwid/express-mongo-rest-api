@@ -63,3 +63,8 @@ Session.vim
 
 # auto-generated tag files
 tags
+
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml
